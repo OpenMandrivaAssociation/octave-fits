@@ -1,0 +1,40 @@
+Description: Use octave::math::x_nint instead of D_NINT
+Author: Rafael Laboissière <rafael@debian.org>
+Origin: other, https://hg.octave.org/mxe-octave/file/tip/src/of-fits-2-fixes.patch
+Bug: https://savannah.gnu.org/bugs/?55374
+Forwarded: not-needed
+Last-Update: 2019-10-04
+
+--- octave-fits-1.0.7.orig/src/read_fits_image.cc
++++ octave-fits-1.0.7/src/read_fits_image.cc
+@@ -194,7 +194,7 @@ static bool any_bad_argument( const octa
+       return true;
+     }
+     double val = args(1).double_value();
+-    if( (D_NINT( val ) !=  val) || (val < 0) )
++    if( (octave::math::x_nint( val ) !=  val) || (val < 0) )
+     {
+       error( "read_fits_image: second argument must be a non-negative scalar integer value" );
+       return true;
+--- octave-fits-1.0.7.orig/src/save_fits_image.cc
++++ octave-fits-1.0.7/src/save_fits_image.cc
+@@ -81,7 +81,7 @@ DEFUN_DLD( save_fits_image, args, nargou
+     else if( args(2).is_scalar_type() )
+     {
+       double val = args(2).double_value();
+-      if( (D_NINT( val ) ==  val) )
++      if( (octave::math::x_nint( val ) ==  val) )
+       {
+         if( BYTE_IMG == val )
+           bitperpixel = BYTE_IMG;
+--- octave-fits-1.0.7.orig/src/save_fits_image_multi_ext.cc
++++ octave-fits-1.0.7/src/save_fits_image_multi_ext.cc
+@@ -78,7 +78,7 @@ DEFUN_DLD( save_fits_image_multi_ext, ar
+     else if( args(2).is_scalar_type() )
+     {
+       double val = args(2).double_value();
+-      if( (D_NINT( val ) ==  val) )
++      if( (octave::math::x_nint( val ) ==  val) )
+       {
+         if( BYTE_IMG == val )
+           bitperpixel = BYTE_IMG;
