@@ -4,7 +4,7 @@ Summary:	functions for reading, and writing FITS file with Octave
 Name:		octave-%{octpkg}
 Version:	1.0.7
 Release:	1
-Source0:	http://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
+Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
 # (debian)
 Patch1:		d-nint-fix.patch
 License:	GPLv3+
@@ -14,6 +14,7 @@ Url:		https://octave.sourceforge.io/%{octpkg}/
 
 BuildRequires:	octave-devel >= 3.0.0
 BuildRequires:	pkgconfig(cfitsio)
+BuildRequires:	gomp-devel
 
 Requires:	octave(api) = %{octave_api}
 
