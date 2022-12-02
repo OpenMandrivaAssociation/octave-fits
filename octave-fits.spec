@@ -9,9 +9,7 @@ Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
 Patch1:		d-nint-fix.patch
 License:	GPLv3+
 Group:		Sciences/Mathematics
-Url:		https://octave.sourceforge.io/%{octpkg}/
-
-
+Url:		https://packages.octave.org/%{octpkg}/
 BuildRequires:	octave-devel >= 3.0.0
 BuildRequires:	pkgconfig(cfitsio)
 BuildRequires:	gomp-devel
@@ -26,8 +24,6 @@ The Octave-FITS package provides functions for reading, and writing FITS
 (Flexible Image Transport System) files. 
 
 This package uses the libcfitsio library.
-
-This package is part of external Octave-Forge collection.
 
 %files
 %license COPYING
