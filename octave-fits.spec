@@ -1,16 +1,17 @@
-%define octpkg fits
+%global octpkg fits
 
-Summary:	functions for reading, and writing FITS file with Octave
-Name:		octave-%{octpkg}
+Summary:	Functions for reading, and writing FITS file with Octave
+Name:		octave-fits
 Version:	1.0.7
-Release:	1
-Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
-# (debian)
-Patch1:		d-nint-fix.patch
+Release:	2
 License:	GPLv3+
 Group:		Sciences/Mathematics
-Url:		https://packages.octave.org/%{octpkg}/
-BuildRequires:	octave-devel >= 3.0.0
+Url:		https://packages.octave.org/fits/
+Source0:	https://downloads.sourceforge.net/octave/fits-%{version}.tar.gz
+# (debian)
+Patch1:		d-nint-fix.patch
+
+BuildRequires:  octave-devel >= 3.0.0
 BuildRequires:	pkgconfig(cfitsio)
 BuildRequires:	gomp-devel
 
@@ -20,18 +21,18 @@ Requires(post): octave
 Requires(postun): octave
 
 %description
-The Octave-FITS package provides functions for reading, and writing FITS
-(Flexible Image Transport System) files. 
+The Octave-FITS package provides functions for reading, and writing
+FITS (Flexible Image Transport System) files.
 
 This package uses the libcfitsio library.
 
 %files
 %license COPYING
 %doc NEWS
-%dir %{octpkglibdir}
-%{octpkglibdir}/*
 %dir %{octpkgdir}
 %{octpkgdir}/*
+%dir %{octpkglibdir}
+%{octpkglibdir}/*
 
 #---------------------------------------------------------------------------
 
@@ -42,6 +43,7 @@ This package uses the libcfitsio library.
 find . -name \*~ -delete
 
 %build
+%set_build_flags
 %octave_pkg_build
 
 %install
