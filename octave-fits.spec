@@ -3,7 +3,7 @@
 Summary:	Functions for reading, and writing FITS file with Octave
 Name:		octave-fits
 Version:	1.0.7
-Release:	2
+Release:	3
 License:	GPLv3+
 Group:		Sciences/Mathematics
 Url:		https://packages.octave.org/fits/
