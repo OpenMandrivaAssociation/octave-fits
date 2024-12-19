@@ -8,8 +8,10 @@ License:	GPLv3+
 Group:		Sciences/Mathematics
 Url:		https://packages.octave.org/fits/
 Source0:	https://downloads.sourceforge.net/octave/fits-%{version}.tar.gz
-# (debian)
-Patch1:		d-nint-fix.patch
+# https://hg.octave.org/mxe-octave/file/tip/src/of-fits-3-octave-9-compat.patch
+Patch0:		of-fits-3-octave-9-compat.patch
+# https://hg.octave.org/mxe-octave/file/tip/src/of-fits-1-cross-fixes.patch
+Patch1:		of-fits-1-cross-fixes.patch.patch
 
 BuildRequires:  octave-devel >= 3.0.0
 BuildRequires:	pkgconfig(cfitsio)
